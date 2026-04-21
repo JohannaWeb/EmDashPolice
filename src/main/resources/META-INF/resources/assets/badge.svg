@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 260" role="img" aria-labelledby="title desc">
+  <title id="title">Em Dash Police badge</title>
+  <desc id="desc">A green and brass inspector badge marked with an em dash.</desc>
+  <path d="M110 8 22 42v70c0 65 36 112 88 140 52-28 88-75 88-140V42L110 8Z" fill="#165c4a"/>
+  <path d="M110 22 38 50v60c0 52 27 91 72 116 45-25 72-64 72-116V50l-72-28Z" fill="#f1c84c"/>
+  <path d="M110 40 55 62v48c0 42 20 73 55 93 35-20 55-51 55-93V62l-55-22Z" fill="#1d7a63"/>
+  <circle cx="110" cy="102" r="43" fill="#f8e38a" stroke="#1d3d36" stroke-width="8"/>
+  <rect x="70" y="94" width="80" height="16" rx="4" fill="#1d3d36"/>
+  <path d="M67 168h86v22H67z" fill="#1d3d36"/>
+  <text x="110" y="184" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#f8e38a">POLICE</text>
+</svg>

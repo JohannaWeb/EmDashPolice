@@ -1,0 +1,10 @@
+target/
+.quarkus/
+.idea/
+.vscode/
+*.iml
+.codex
+output/
+tmp/
+src/main/frontend/node_modules/
+src/main/frontend/dist/

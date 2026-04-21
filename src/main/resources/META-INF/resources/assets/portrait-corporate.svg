@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="Corporate portrait">
+  <defs>
+    <filter id="noir-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0" result="fadedNoise" />
+      <feComposite operator="in" in="fadedNoise" in2="SourceGraphic" result="grained" />
+      <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="distort" />
+      <feDisplacementMap in="grained" in2="distort" scale="1.2" />
+    </filter>
+  </defs>
+  <rect width="120" height="140" fill="#e8e4d8" />
+  <g filter="url(#noir-filter)">
+    <!-- Suit -->
+    <path d="M10 140 L30 100 L90 100 L110 140 Z" fill="#1a1d1b" />
+    <path d="M45 100 L60 115 L75 100" fill="#e8e4d8" /> <!-- Shirt triangle -->
+    <path d="M56 100 L60 135 L64 100" fill="#70543e" /> <!-- Tie -->
+    <!-- Head -->
+    <path d="M38 80 Q38 45 60 45 T82 80 Q82 105 60 105 T38 80" fill="#1a1d1b" />
+    <!-- Slick Hair -->
+    <path d="M38 60 Q40 40 60 38 T82 60 Q70 50 60 50 T38 60" fill="#4a544d" />
+    <!-- Features -->
+    <line x1="50" y1="75" x2="58" y2="75" stroke="#e8e4d8" stroke-width="2" />
+    <line x1="62" y1="75" x2="70" y2="75" stroke="#e8e4d8" stroke-width="2" />
+    <path d="M55 92 L65 92" stroke="#e8e4d8" stroke-width="1.5" />
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="Lab assistant portrait">
+  <defs>
+    <filter id="noir-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0" result="fadedNoise" />
+      <feComposite operator="in" in="fadedNoise" in2="SourceGraphic" result="grained" />
+      <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="distort" />
+      <feDisplacementMap in="grained" in2="distort" scale="1.2" />
+    </filter>
+  </defs>
+  <rect width="120" height="140" fill="#e8e4d8" />
+  <g filter="url(#noir-filter)">
+    <!-- Lab Coat -->
+    <path d="M10 140 L30 100 L90 100 L110 140 Z" fill="#e8e4d8" stroke="#1a1d1b" stroke-width="2" />
+    <path d="M40 100 L60 115 L80 100" fill="#1a1d1b" /> <!-- V-neck -->
+    <!-- Head -->
+    <path d="M40 75 Q40 45 60 45 T80 75 Q80 105 60 105 T40 75" fill="#1a1d1b" />
+    <!-- Goggles -->
+    <rect x="42" y="65" width="16" height="12" rx="2" fill="none" stroke="#e8e4d8" stroke-width="2" />
+    <rect x="62" y="65" width="16" height="12" rx="2" fill="none" stroke="#e8e4d8" stroke-width="2" />
+    <line x1="58" y1="71" x2="62" y2="71" stroke="#e8e4d8" stroke-width="2" />
+    <path d="M35 71 L42 71 M78 71 L85 71" stroke="#e8e4d8" stroke-width="1.5" /> <!-- Straps -->
+  </g>
+</svg>
