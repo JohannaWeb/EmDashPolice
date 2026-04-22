@@ -77,3 +77,54 @@ src/main/java/dev/emdashpolice
 ```
 
 `CaseCatalog` owns the game data, including case text, clue tags, difficulty, dossiers, and portrait paths. `CaseResource` exposes the JSON endpoints.
+
+## Deployment
+
+This repo is set up for a split deployment:
+
+- Railway hosts the Quarkus app and API.
+- Vercel hosts the static React frontend.
+
+### Railway
+
+`railway.json` configures Railway to:
+
+- install frontend dependencies
+- build the Vite frontend into Quarkus static resources
+- package the Quarkus app with Maven
+- start `target/quarkus-app/quarkus-run.jar`
+
+Quarkus is configured to honor Railway's runtime port with:
+
+```properties
+quarkus.http.port=${PORT:8080}
+```
+
+Set this Railway environment variable if you deploy the frontend separately on Vercel:
+
+```text
+QUARKUS_HTTP_CORS_ENABLED=true
+QUARKUS_HTTP_CORS_ORIGINS=https://your-vercel-project.vercel.app
+```
+
+If you add a custom Vercel domain, include that origin too as a comma-separated list.
+
+### Vercel
+
+`vercel.json` configures Vercel to:
+
+- install dependencies from `src/main/frontend`
+- run the Vite build in `vercel` mode
+- publish `src/main/frontend/dist`
+
+The frontend package declares `node >=20.19.0`, which matches Vite 7's current runtime requirement.
+
+Set this Vercel environment variable:
+
+```text
+VITE_API_BASE_URL=https://your-railway-app.up.railway.app
+```
+
+An example is included in [src/main/frontend/.env.example](/home/jalmeida/projects/emdashpolice/src/main/frontend/.env.example).
+
+The frontend now reads `VITE_API_BASE_URL` and falls back to same-origin `/api` locally and on single-origin deployments.

@@ -5,16 +5,22 @@ import {fileURLToPath} from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig({
-  plugins: [react()],
-  build: {
-    outDir: path.resolve(__dirname, "../resources/META-INF/resources"),
-    emptyOutDir: false
-  },
-  server: {
-    port: 5173,
-    proxy: {
-      "/api": "http://localhost:8080"
+export default defineConfig(({mode}) => {
+  const vercelBuild = mode === "vercel" || process.env.VERCEL === "1";
+
+  return {
+    plugins: [react()],
+    build: {
+      outDir: vercelBuild
+        ? path.resolve(__dirname, "dist")
+        : path.resolve(__dirname, "../resources/META-INF/resources"),
+      emptyOutDir: vercelBuild
+    },
+    server: {
+      port: 5173,
+      proxy: {
+        "/api": "http://localhost:8080"
+      }
     }
-  }
+  };
 });

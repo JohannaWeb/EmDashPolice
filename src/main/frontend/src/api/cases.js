@@ -1,7 +1,13 @@
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/$/, "");
+
+function apiUrl(path) {
+  return `${apiBaseUrl}${path}`;
+}
+
 export async function fetchGameData(options = {}) {
   const [statusResponse, casesResponse] = await Promise.all([
-    fetch("/api/status", options),
-    fetch("/api/cases", options)
+    fetch(apiUrl("/api/status"), options),
+    fetch(apiUrl("/api/cases"), options)
   ]);
 
   if (!statusResponse.ok || !casesResponse.ok) {
