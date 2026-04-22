@@ -1,12 +1,14 @@
 {
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "RAILPACK",
-    "buildCommand": "npm --prefix src/main/frontend ci && npm --prefix src/main/frontend run build && mvn -B package -DskipTests"
+    "builder": "DOCKERFILE",
+    "buildCommand": null,
+    "dockerfilePath": "Dockerfile"
   },
   "deploy": {
-    "startCommand": "java -jar target/quarkus-app/quarkus-run.jar",
+    "startCommand": null,
     "healthcheckPath": "/api/status",
+    "healthcheckTimeout": 600,
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
   }
