@@ -1,0 +1,11 @@
+.git
+.qodo
+.codex
+target
+output
+tmp
+node_modules
+src/main/frontend/node_modules
+src/main/frontend/dist
+.idea
+.vscode

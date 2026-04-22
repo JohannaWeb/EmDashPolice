@@ -128,3 +128,32 @@ VITE_API_BASE_URL=https://your-railway-app.up.railway.app
 An example is included in [src/main/frontend/.env.example](/home/jalmeida/projects/emdashpolice/src/main/frontend/.env.example).
 
 The frontend now reads `VITE_API_BASE_URL` and falls back to same-origin `/api` locally and on single-origin deployments.
+
+## Docker
+
+This repo includes a multi-stage [Dockerfile](/home/jalmeida/projects/emdashpolice/Dockerfile) that:
+
+- builds the React frontend with Node 20
+- packages the Quarkus app with Maven and Java 21
+- runs the app on a slim Java 21 runtime image
+
+Build the image:
+
+```bash
+make docker-build
+```
+
+Run it locally:
+
+```bash
+make docker-run
+```
+
+Or directly:
+
+```bash
+docker build -t emdashpolice .
+docker run --rm -p 8080:8080 emdashpolice
+```
+
+The container serves the game and API on `http://localhost:8080`. You can override the HTTP port with the `PORT` environment variable, the same way Railway does.

@@ -4,7 +4,7 @@ SDKMAN_INIT ?= $(HOME)/.sdkman/bin/sdkman-init.sh
 MVN = if [ -f "$(SDKMAN_INIT)" ]; then source "$(SDKMAN_INIT)"; fi; mvn
 JAVA = if [ -f "$(SDKMAN_INIT)" ]; then source "$(SDKMAN_INIT)"; fi; java
 
-.PHONY: help frontend-install frontend-build frontend-dev dev build test package run clean api-status
+.PHONY: help frontend-install frontend-build frontend-dev dev build test package run clean api-status docker-build docker-run
 
 help:
 	@printf "Targets:\n"
@@ -18,6 +18,8 @@ help:
 	@printf "  make run         Run the packaged app\n"
 	@printf "  make clean       Remove build output\n"
 	@printf "  make api-status  Query the local status endpoint\n"
+	@printf "  make docker-build Build the Docker image\n"
+	@printf "  make docker-run   Run the Docker image on port 8080\n"
 
 frontend-install:
 	npm --prefix src/main/frontend install
@@ -54,3 +56,9 @@ clean:
 
 api-status:
 	curl -s http://localhost:8080/api/status
+
+docker-build:
+	docker build -t emdashpolice .
+
+docker-run:
+	docker run --rm -p 8080:8080 emdashpolice
