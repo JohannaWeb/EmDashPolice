@@ -2,6 +2,8 @@
 
 Em Dash Police is a small Quarkus-hosted browser game about inspecting writing samples for possible AI usage. The backend serves case data as JSON, and the frontend is a React/Vite app built into Quarkus static resources.
 
+https://emdashpolice-production.up.railway.app/
+
 ## Requirements
 
 - SDKMAN installed
